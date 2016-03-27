@@ -1,0 +1,50 @@
+.content {
+	display: -webkit-flex;
+	/* Safari */
+	display: flex;
+	align-items: center; /*属性定义项目在交叉轴上如何对齐。*/
+	justify-content: space-between; /*属性定义了项目在主轴上的对齐方式。space-between：两端对齐，项目之间的间隔都相等*/
+}
+
+.one {
+	border: 1px red solid;
+	padding: 20px;
+	width: 150px;
+	height: 120px;
+	flex: 0 0 150px;
+}
+
+.two {
+	border: 1px red solid;
+	padding: 20px;
+	width: 150px;
+	height: 100px;
+	flex: 0 0 150px;
+}
+
+.three {
+	border: 1px red solid;
+	padding: 20px;
+	width: 150px;
+	height: 40px;
+	flex: 0 0 150px;
+}
+
+.four {
+	border: 1px blue solid;
+	padding: 20px;
+	width: 150px;
+	height: 200px;
+	flex: 0 0 150px;
+}
+
+@media screen and (max-width:640px) {
+	.four {
+		order: -1; /*属性定义项目的排列顺序。数值越小，排列越靠前，默认为0*/。
+	}
+	.container {
+		display: flex; 
+		align-items: flex-start;  
+		flex-wrap: wrap;   /*换行，第一行在上方。*/
+	}
+}

@@ -1,0 +1,197 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background-color: #ddd;
+	font-family: "微软雅黑";
+}
+ul{
+	list-style-type: none;
+}
+a{
+	color: blue;
+}
+header{
+	background-color: #222;
+}
+.head{
+	width: 1260px;
+	height: 80px;
+	margin: 0 auto;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.head{
+	margin-bottom: 20px;
+}
+.head img{
+	width: 120px;
+	height: 50px;
+}
+.head .head_left{
+	position: relative;
+	top: 15px;
+}
+.head_right ul li{
+	width: 120px;
+	line-height: 80px;
+	float: left;
+	text-align: center;
+}
+.head_right ul li:last-child a{
+	color: #777;
+}
+.head ul li a{
+	text-decoration: none;
+	color: #fff;
+}.head_right ul li a:hover{
+	color: #777;
+}
+.container{
+	width: 1260px;
+	clear: both;
+	margin: 0 auto;
+}
+.container_up{
+	width: 800px;
+	margin: 10px auto 20px auto ;
+	background-color: white;
+	padding: 20px;
+	box-shadow:2px 2px 1px #444;
+	-moz-box-shadow:2px 2px 1px #444;
+	-webkit-box-shadow:2px 2px 1px #444;
+}
+.container_up img{
+	margin-top: 15px;
+}
+.container h3{
+	color: #777;
+	padding-top: 20px;
+	padding-bottom: 12px;
+}
+.container_up span{
+	color: #777;
+	font-size: 12px;
+}
+.container_up .first{
+	text-indent: 30px;
+	margin-top: 15px;
+}
+.picture dl img{
+	width: 100px;
+	height: 100px;
+	
+}
+.container_up ul{
+	margin-left: 25px;
+}
+.picture dl{
+	margin-top: 30px;
+	margin-left: 50px;
+}
+.picture dl dd{
+	display: inline-block;
+	width: 150px;
+	padding: 5px;
+	height: 150px;
+	text-align: center;
+	border: 1px solid black;
+	margin-top: 20px;
+}
+.table ol{
+	margin: 20px 0 20px 50px;
+}
+.table table{
+	width: 100%;
+	border: 0px solid #DDDDDD;
+}
+.table table tr td{
+	padding: 5px;
+}
+.table table thead tr th{
+	color: white;
+	text-align: left;
+	padding: 5px;
+	background-color: black;
+}
+.table table tbody tr:last-child{
+	background-color: #DDDDDD;
+}
+.register{
+	width: 360px;
+}
+.register h3{
+	color: black;
+	border-left: 5px solid #ddd;
+	padding-left: 10px;
+}
+.register_content{
+	font-size: 12px;
+}
+.register_content ul li{
+	overflow: hidden;
+	margin-top: 10px;
+	clear: both;
+}
+.register_content ul li:not(:last-child){
+}
+.register_content ul li span{
+	float: left;
+	text-align: right;
+	color: black;
+	width: 100px;
+}
+.register_content ul li p{
+	margin-left: 50px;
+	color: #ccc;
+}
+.register_content ul li p:before{
+	content: "";
+	display: block;
+	float: left;
+	width: 50px;
+    height: 20px;
+}
+.register_content form .text{
+	float: left;
+	font-size: 12px;
+	padding: 2px;
+}
+.register_content ul li input[type="radio"], .register_content ul li input[type="checkbox"]{
+        margin: 3px 3px 0px 5px;
+}
+.register_content select{
+	overflow: hidden;
+}
+.register_content textarea{
+	width: 200px;
+	font-size: 16px;
+	height: 100px;
+	float: left;
+}
+.register_content .submint{
+	width: 100%;
+	height: 40px;
+	color: white;
+	font-size: 16px;
+	font-weight: bolder;
+	background-color: #35f;
+	border-radius: 10px;
+}
+footer{
+	background-color: #000000;
+	margin-top: 20px;
+	height: 50px;
+	clear: both;
+}
+.footer{
+	text-align: center;
+	color: white;
+	line-height: 50px;
+	
+}
