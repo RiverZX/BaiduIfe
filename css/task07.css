@@ -1,0 +1,658 @@
+* {
+	padding: 0;
+	margin: 0
+}
+
+body {min-width: 1200px;}
+
+a {
+	text-decoration: none;
+	color: #e74f4d;
+	/*将字体颜色设置在此处颜色改变*/
+}
+
+.top {
+	height: 54px;
+}
+
+.logo {
+	float: left;
+	margin: 5px 0 0 0;
+	padding-left: 60px;
+	font: 21px "SimHei";
+	height: 31px;
+}
+
+.logo img {
+	float: left;
+}
+
+.logo p {
+	float: left;
+	padding-left: 10px;
+	line-height: 31px;
+}
+
+.nav ul {
+	float: right;
+	position: relative;
+	list-style: none; 
+	right: 140px;
+	top: 13px;
+}
+
+.nav li {
+	float: left;
+	
+	margin-left: 30px;
+	font: 14px "Microsoft YaHei";
+}
+
+.nav-li-1 {
+	padding: 3px 18px 18px 17px;
+	/*此处为了使得它的下划线比字体本身要长*/
+	color: #e74f4d;
+	border-bottom: 4px solid #e74f4d;
+}
+
+.login {
+	float: right;
+	margin-right: -400px;
+	margin-top: 12px;
+	color: #e74f4d;
+	font: 14px "Microsoft YaHei"; 
+}
+
+.login img {
+	margin-right: 3px;
+	position: relative;
+	top: 3px;
+}
+
+.banner img {
+	width: 100%;
+	height: 690px;
+}
+
+.banner-text {
+	position: absolute;
+	/*？？为何此处使用相对定位的时候就会出现在文字下方*/
+	top: 210px;
+	left: 115px;
+	color: #fff;
+	font-family: "Microsoft YaHei";
+}
+
+.banner-text h4 {
+	font-size: 60px;
+	font-weight: 100;
+}
+
+.banner-text p {
+    font-size: 21px;
+    line-height: 32px;
+    color: #fffdfd;
+}
+
+.banner-button {
+	width: 330px;
+	height: 60px;
+	background-color: #e74f4d;
+	margin-top: 60px;
+	font-size: 30px;
+	text-align: center;
+	border-radius: 5px;
+	line-height: 60px;
+}
+
+.selection {
+	width: 1200px;
+	height: 250px;
+	margin: 0 auto;
+	color: #767777;
+	font: 14px "SimHei";
+}
+
+.selection-ex {
+	float: left;
+	margin-top: 45px;
+	width: 300px;
+}
+
+.selection-ex img {
+	margin: 0 90px 45px 90px}
+
+.selection-text {
+	width: 155px;
+	height: 50px;
+	padding: 0 40px 0 40px;
+	border-right: 2px solid #aaa;
+	text-align: center;
+}
+
+.selection-text-4 {border-right: none;}
+
+.want-more {
+	width: 100%;
+	height: 320px;
+	background-color: rgba(128, 128, 128, 0.1);
+	text-align: center;
+	 /*使用此属性也可以将图片居中*/
+}
+
+.want-more img {
+	margin-top: 90px;
+	margin-bottom: 45px;
+}
+
+.want-more p {
+	font: 40px "SimHei";
+	color: gray;
+	margin-bottom: 45px;
+}
+
+.map {
+	min-width: 1200px;
+	height: 318px;
+}
+
+.map img {width: 100%;}
+
+.map-content {
+	position: relative;
+	/*有没有更好的方法*/
+	top: -265px;
+	text-align: center;
+}
+
+.map-text h3 {
+	font: 21px "Microsoft YaHei";
+}
+
+.map-line {
+	width: 30px;
+	height: 3px;
+	background-color: #fff;
+	/*margin: 0 auto;*/
+	margin-bottom: 8px;
+	display: inline-block;
+	/*需要详细了解下此样式特点*/
+}
+
+.map-text p {
+	font: 12px "Microsoft YaHei"
+}
+
+.map-search {margin-top: 50px;}
+
+.map-search select{
+	border: none;
+	-webkit-appearance:none;
+	   -moz-appearance:none;
+	        appearance:none;
+    background: url("../img/task07-select2.png") no-repeat scroll right center #fff;
+	padding-left: 6px;
+	/*此处是将文字右移*/
+	font: 12px "Microsoft YaHei";
+	color: #a8aaaa;
+	width: 235px;
+	height: 35px;
+	margin-left:25px;
+}
+
+.map-search input{
+	width: 235px;
+	height: 35px;
+	margin-left: 25px;
+	border: none;
+	color: #fff;
+	background-color: #be4e48;
+}
+
+.gallery {
+	background-color: #f7f7f7;
+	text-align: center;
+	padding-top: 145px;
+}
+
+.gallery-sum {
+	margin: 0 auto;
+	min-width: 1200px;
+	height: 500px;
+	margin-left: 75px;
+}
+
+.pic {
+	float: left;
+	width: 300px;
+}
+
+.pic img {
+	border: 1px solid #d9d5d4;
+	padding: 12px 8px;
+}
+
+.pic h4 {
+	font: 16px "Microsoft YaHei";
+	color: #323333;
+	margin: 5px auto 3px;
+}
+
+.pic p {
+	font: normal 13px "Microsoft YaHei";
+	color: #786f6c;
+}	
+
+.special-pic h4 {
+	color: #000;
+	margin-left: 30px;
+	letter-spacing: 30px;
+	font-size: 24px;
+	margin-top: 35px;
+}
+
+.world {
+	position: relative;
+	min-width: 1200px;
+	font: 12px "Microsoft YaHei";
+	height: 565px;
+}
+.world-banner {
+	display: inline-block;
+	position: relative;
+	width: 67%;
+	color: #fff;
+}
+.world-banner img{
+	margin-left: -1px;
+	width: 100%;
+	height: 565px;
+}
+
+.world-banner-text {
+	position: absolute;
+	/*老问题*/
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%); 
+	   -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%); 		
+         -o-transform: translate(-50%, -50%); 
+            transform: translate(-50%, -50%);
+}
+
+.world-banner-text h2 {
+	font-size: 50px;
+	font-weight: normal;
+}
+
+.world-banner-text h1 {
+	margin: -35px 0 -10px 0;
+	font-size: 158px;
+	font-weight: normal;
+}
+.world-banner-text h3 .world-banner-text h4 {
+	font-size: 22px;
+	font-weight: normal;
+}
+
+.world-text {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 33%;
+	text-align: center;
+}
+
+.text-sum {
+	position: relative;
+	width: 290px;
+	margin: 0 auto;
+}
+
+.world-text p {
+	font: 12px "SimSun";
+	color: #aaaaaa;
+	text-align: left;
+	margin-bottom: 35px;
+	letter-spacing: 1px;
+	line-height: 28px;
+}
+
+.world-text-title {
+	margin-top: 150px;
+	margin-bottom: 20px;
+}
+.world-text-title span {
+	font: bold 20px "SimSun";
+	color: #323333;
+	margin: 0 12px;
+}
+
+.text-char {
+	position: absolute;
+	width: 28px;
+	height: 1px;
+	border-top: 2px solid #766d6a;
+	left: 150px;
+	top: 10px;
+	/*-webkit-transform:rotate(-45deg); 
+	-moz-transform:rotate(-45deg);
+	-ms-transform:rotate(-45deg); 
+	-o-transform:rotate(-45deg);*/
+	transform:rotate(-45deg);
+}
+
+.world-btu {
+	/*width: 110px;
+	height: 38px;*/
+	padding: 10px 30px;
+	border: 1px solid #e46868;
+	color: #e46868;
+	border-radius: 5px;
+	display: inline-block;
+	/*将其变为行内元素*/
+}
+
+.world-cycle {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	border: 1px solid #929292;
+	display: inline-block;
+	margin: 30px 6px;
+}
+
+.world-cycle:first-child {
+    background-color: #929292;
+}
+
+.left-banner,.mid-banner,.right-banner {
+	height: 520px;
+	width: 33%;
+	float: left
+}
+
+.left-banner {
+	background-color: #e74f4d;
+	color: white;
+}
+
+.text {
+	margin-top: 160px;
+	font: 21px "SimHei";
+	text-align: center;
+}
+
+.text p{
+	margin-top: 5px;
+}
+
+/*.mid-text {
+	width: 34%;
+}*/
+
+.new-time-line-1 {
+	width: 30px;
+	height: 2px;
+	display: inline-block;
+	margin: 20px 0 20px;
+	background-color: white;
+}
+
+.new-time-line-2 {
+	width: 30px;
+	height: 2px;
+	display: inline-block;
+	margin: 20px 0 20px;
+	background-color: #abaaaa;
+}
+
+.new-time-more-1 {
+	display: inline-block;
+	margin: 0 auto;
+	border: 1px solid #fff;
+	border-radius: 10px;
+	padding: 12px 40px;
+	color: white;
+}
+
+.new-time-more-2 {
+	display: inline-block;
+	margin: 0 auto;
+	border: 1px solid #e74f4d;
+	border-radius: 10px;
+	padding: 12px 40px;
+	color: #e74f4d;
+}
+
+.right-banner {
+	float: right;
+}
+
+.right-banner img{
+	width: 100%;
+	height: 520px;
+}
+
+.new-cover {
+	width: 100%;
+	height: 520px;
+	background-color: #000;
+	position: relative;
+	top: -520px;
+	opacity: 0.4;
+}
+
+.new-edge {
+	position: relative;
+	left: 0px;
+	top: -775px;
+	width: 0;
+	height: 0;
+	border-left: 22px solid #fff;
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent;
+	;
+}
+
+.last-text {
+	display: inline-block;
+	padding: 120px;
+	width: 1100px;
+	height: 180px;
+    text-align: center;
+}
+
+.last-text p:first-child {
+	font: 21px "SiHei";
+	color: #323333;
+}
+
+.last-text p {
+	font: 12px "Microsoft YaHei";
+	color: #aaaaaa;
+}
+
+.text-line {
+	width: 30px;
+	height: 2px;
+	background-color: #e74f4d;
+	margin: 10px auto;
+}
+
+.message {
+	margin-top: -100px;
+	margin-left: 50px;
+}
+
+.agreement {
+	float: left;
+	width: 300px;
+	margin-left: 120px;
+	margin-right: 100px;
+}
+
+.agreement h4{
+	font: 14px "SimHei";
+	color: #333;
+}
+
+.agreement p {
+	margin: 15px 0 -4px 0;
+	font: 12px "SimSun";
+	color: #aaa;
+}
+
+.agreement-edge {
+	position: relative;
+	left: 265px;
+	margin-bottom: 25px;
+}
+
+.edge-more,.more {
+	display: inline-block;
+	/*此处仅仅将其变为行内元素时不能得到想要的效果*/
+}
+
+.edge-more {
+	width: 5px;
+	height: 5px;
+	border-right: 2px solid #aaa;
+	border-bottom: 2px solid #aaa;
+	-webkit-transform: rotate(45deg);
+	   -moz-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	     -o-transform: rotate(45deg);
+	        transform: rotate(45deg);
+}
+
+.more {
+	font: 12px "SimHei";
+	color: #aaa;
+}
+
+/*.form-text {
+	position: relative;
+	right: -00px;
+}*/
+
+label input {
+	border: none;
+	background-color: #ededee;
+	width: 255px;
+	height: 40px;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	margin-left: -47px;
+	border-radius: 5px;
+	padding-left: 55px;
+}
+
+label span {
+	position: relative;
+	left: 25px;
+	color: #555;
+}
+
+textarea {
+	border: none;
+	background-color: #ededee;
+	width: 640px;
+	height: 100px;
+	margin: 6px 8px;
+	border-radius: 5px;
+	padding-top: 10px;
+}
+
+.input {
+	border:none;
+	background-color: #ededee;
+	width: 640px;
+	height: 40px;
+	margin: 6px 8px;
+	border-radius: 5px;
+}
+
+.about-us {
+	text-align: center;
+	min-width: 1200px;
+	height: 350px;
+	background-color: #32353e;
+	color: #e0dede;
+	margin-top: 90px;
+}
+
+.about-us-text p:first-child {
+	font: 21px "SimHei";
+	color: #fff;
+	padding-top: 90px;
+}
+
+.about-us-text p {
+	font: 12px "SimSun";
+	margin-top: 8px;
+}
+
+.about-us-text p:last-child {
+	font: 12px "SimSun";
+	margin-top: 0px;
+	margin-bottom: 30px;
+}
+
+#mail {
+	height: 40px;
+	width: 430px;
+}
+
+#btn {
+	color: #e0dcdd;
+    font: 15px "Microsoft YaHei";
+    position: relative;
+    top: 1px;
+    left: -8px;
+    background-color: #686166;
+    height: 42px;
+    width: 80px;
+    border: none;
+    cursor: pointer;
+}
+
+.about-us-icon {
+	margin-top: 35px;
+}
+
+.about-us-icon img {
+	margin: 0 12px;
+}
+
+.footer {
+	color: white;
+    background-color: #2f3038;
+    height: 60px;
+    min-width: 1200px;
+}
+
+.footer a {color: white;}
+
+.copyright {
+	position: relative;
+	margin-left: 100px;
+	top: 25px;
+	font: 12px "SimSun";
+	color: #cfcacb;
+}
+
+.back {
+	float: right;
+	margin-right: 40px;
+	margin-top: 20px;
+	font: 12px "SimSun";
+}
+
+/*简单的做一个总结吧，此次的页面写得我是相当的蛋疼。由于比较懒惰
+所以在之前的时候没有好好复习下之前的position 和 float的用法导致写得较为随心所欲 
+资格的直接后果就是我后面的定位问题花费我大量的时间，对PSde无基础直接就是更加残暴
+是得我只有参考别人的作品，才知道具体的像素大小还有相应的字体。不行好好需要好好复习下基础知识 
+*/
