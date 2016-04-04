@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.container {
+				overflow: hidden;
+				width: 400px;
+				display: table;
+				height: auto;
+				/*position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-top: -100px;
+				margin-left: -200px;第一种div垂直居中 各个浏览器适用*/
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				/*第二种*/
+				/*display: table-cell;
+				vertical-align: middle;
+				text-align: center;*/
+				/*内容垂直居中*/
+				/*display: -webkit-box;
+				-webkit-box-align: center;
+				-webkit-box-pack: center;*/
+				/*内容垂直居中*/
+				/*position: absolute;
+			    top: 50%; 
+				left: 50%;
+				transform: translate(-50%,-50%);
+				-webkit-transform: translate(-50%,-50%);
+				-moz-transform: translate(-50%,-50%);
+				-ms-transform: translate(-50%,-50%);*/
+				/*第三种移动端用的多*/
+				background-color: yellow;
+			}
+			
+			.content {
+				height: 100%;
+				background-color: #eee;
+				padding: 60px;
+				display: table;
+			}
+			
+			.content:before {
+				content: "";
+				display: block;
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				left: 0px;
+				top: 0;
+				border-bottom-right-radius: 50px;
+				background: yellow;
+			}
+			
+			.content:after {
+				content: "";
+				display: block;
+				width: 50px;
+				height: 50px;
+				left: 350px;
+				bottom: 0;
+				position: absolute;
+				border-top-left-radius: 50px;
+				background: yellow;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="content">
+				<p>啊竞豪奢克拉荷关了克拉克噶时间噶啊是个啊是个发样阿福生快山不尽阿娇我男人发生纠纷</p>
+			</div>
+		</div>
+	</body>
+
+</html>
