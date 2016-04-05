@@ -18,7 +18,7 @@
 			function getId(selector){  return document.getElementById(selector); }
 			function getData(){
 				var input=getId("input").value;
-				while(!input){alert("qinshuchushu") }
+				if(!input){alert("qinshuchushu"); return false;}
 				return parseInt(input);
 			}
 			function render(){
@@ -27,12 +27,16 @@
 				result.innerText=arr;
 			}
 			getId("btn_l_in").onclick=function(){
+				if(getData()){
 				arr.unshift(getData());
 				render();
+				}
 			};
 			getId("btn_r_in").onclick=function(){
+				if(getData()){
 				arr.push(getData());
 				render();
+				}
 			};
 			getId("btn_l_out").onclick=function(){
 				arr.shift();
