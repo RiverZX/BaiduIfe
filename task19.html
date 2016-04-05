@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		     #res{
+		     	padding-top: 10px;
+		     }
+			#res span{
+				margin-right: 5px;
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<input type="number" id="input" placeholder="请输入数字10-100"/>
+			<button id="btn_l_in">左侧入</button>
+			<button id="btn_r_in">右侧入</button>
+			<button id="btn_l_out">左侧出</button>
+			<button id="btn_r_out">右侧出</button>
+		</div>
+		<div id="res">
+		</div>
+		<div id="resNum">
+		</div>
+		<script type="text/javascript">
+			var arr=[];
+			function getId(selector){  return document.getElementById(selector); }
+			function getData(){
+				var input=getId("input").value;
+				if(!input){
+					alert("输入不为空"); return false;
+				}else if(input<10||input>100){
+					alert("输入数字范围：10到100哦！");
+					return false;
+				}else
+				   return parseInt(input);
+			}
+			function render(flag){
+				var result=getId("res");
+				var resNum=getId("resNum");
+				result.innerHTML="";
+				for(var i=0,len=arr.length;i<len;i++){
+					var span=document.createElement("span");
+					span.style.width="10px";
+					span.style.height=arr[i]*2+"px";
+					span.style.backgroundColor="red";
+					result.appendChild(span);
+				}
+				resNum.innerText="";
+				resNum.innerText=arr;
+			}
+			getId("btn_l_in").onclick=function(){
+				var data=getData();
+				if(data&&arr.length<=60){
+				arr.unshift(data);
+				render();
+				}
+				if(arr.length>60){
+                   alert("队员已满60个，无法继续添加，要想继续添加，请把一些队员坑出去")	;				
+				}
+			};
+			getId("btn_r_in").onclick=function(){
+				var data=getData();
+				if(data&&arr.length<=60){
+				arr.push(data);
+				render();
+				}
+				if(arr.length>60){
+                   alert("队员已满60个，无法继续添加，要想继续添加，请把一些队员坑出去")					
+				}
+			};
+			getId("btn_l_out").onclick=function(){
+				alert(arr.shift()+"被踢出去了");
+				render();
+			};
+			getId("btn_r_out").onclick=function(){
+				alert(arr.pop()+"被踢出去了");
+				render();
+			};
+		</script>
+	</body>
+</html>
