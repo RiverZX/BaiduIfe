@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#res {
+				padding-top: 10px;
+			}
+			
+			#res span {
+				margin-right: 5px;
+				padding: 10px;
+				display: inline-block;
+				color: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<textarea id="input" rows="" cols=""></textarea>
+			<button id="btn_l_in">左侧入</button>
+			<button id="btn_r_in">右侧入</button>
+			<button id="btn_l_out">左侧出</button>
+			<button id="btn_r_out">右侧出</button>
+			<input type="text" id="find" placeholder="请输入要查找的字符" /><label for="find"></label>
+			<button id="btn_find">查询</button>
+		</div>
+		<div id="res">
+		</div>
+		<script type="text/javascript">
+			var arr = [];
+
+			function getId(selector) {
+				return document.getElementById(selector);
+			}
+
+			function getData() {
+				var input = getId("input").value.replace(/^\s*/, "").replace(/\s*$/, ""); //去掉空格符
+				if (!input) {
+					alert("输入不为空");
+					return false;
+				} else return input;
+			}
+
+			function render(flag) {
+				var result = getId("res");
+				var regStr = getId("find").value.replace(/^\s*/, "").replace(/\s*$/, "");
+				result.innerHTML = "";
+				for (var i = 0, len = arr.length; i < len; i++) {
+					var span = document.createElement("span");
+					span.innerText = arr[i];
+					span.style.backgroundColor = "#f00";
+					if (flag&&matchInput(arr[i],regStr)) {
+						var a=[];
+						a=matchInput(arr[i],regStr);
+						span.style.backgroundColor="#ff0";
+					}
+					result.appendChild(span);
+				}
+			}
+
+			function matchInput(str, regStr) {
+				var reg = new RegExp(regStr, 'g');
+				return str.match(reg);
+			}
+			getId("btn_l_in").onclick = function() {
+				var data = getData();
+				if (data) {
+					arr.unshift(data);
+					render(false);
+				}
+			};
+			getId("btn_r_in").onclick = function() {
+				var data = getData();
+				if (data) {
+					arr.push(data);
+					render(false);
+				}
+			};
+			getId("btn_find").onclick = function() {
+				render(true);
+			};
+			getId("btn_l_out").onclick = function() {
+				alert(arr.shift() + "--->被踢出去了");
+				render(false);
+			};
+			getId("btn_r_out").onclick = function() {
+				alert(arr.pop() + "-->被踢出去了");
+				render(false);
+			};
+		</script>
+	</body>
+
+</html>
