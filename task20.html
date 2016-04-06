@@ -38,7 +38,8 @@
 			}
 
 			function getData() {
-				var input = getId("input").value.replace(/^\s*/, "").replace(/\s*$/, ""); //去掉空格符
+				var input = getId("input").value.replace(/^\s*/, "").replace(/\s*$/, "").split(/[^0-9a-zA-Z\u4e00-\u9fa5]+/); //去掉空格符
+				console.log(input);
 				if (!input) {
 					alert("输入不为空");
 					return false;
@@ -69,15 +70,20 @@
 			getId("btn_l_in").onclick = function() {
 				var data = getData();
 				if (data) {
-					arr.unshift(data);
-					render(false);
+					for(var i=0;i<data.length;i++){
+						arr.unshift(data[i]);
+					    render(false);
+					}
+					
 				}
 			};
 			getId("btn_r_in").onclick = function() {
 				var data = getData();
 				if (data) {
-					arr.push(data);
-					render(false);
+					for(var i=0;i<data.length;i++){
+						arr.push(data[i]);
+					    render(false);
+					}
 				}
 			};
 			getId("btn_find").onclick = function() {
