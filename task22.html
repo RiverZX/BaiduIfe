@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#root {
+				width: 800px;
+				height: 300px;
+				padding: 20px;
+			}
+			
+			.root_up,
+			.root_bm {
+				width: 700px;
+				height: 100px;
+				margin-top: 10px;
+				padding: 20px;
+			}
+			.up_left,
+			.up_right,
+			.bm_left,
+			.bm_right {
+				width: 270px;
+				height: 50px;
+				padding: 20px;
+				margin-right: 20px;
+				float: left;
+			}
+			.up_left div,
+			.up_right div,
+			.bm_left div,
+			.bm_right div{
+				width: 100px;
+				height: 50px;
+				margin-right: 30px;
+				display: inline-block;
+			} 
+			div{
+				border: 2px black solid;
+			}
+			
+			.btn {
+				margin-top: 10px;
+			}
+			
+			.btn button {
+				font-size: 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="root" >
+			<div class="root_up">
+				<div class="up_left">
+					<div ></div><div ></div>
+				</div>
+				<div class="up_right">
+					<div> </div><div ></div>
+				</div>
+			</div>
+			<div class="root_bm">
+				<div class="bm_left">
+					<div ></div><div ></div>
+				</div>
+				<div class="bm_right">
+					<div ></div><div ></div>
+				</div>
+			</div>
+		</div>
+		<p class="btn">
+			<button id="btn_before">前序遍历</button>
+			<button id="btn_center">中序遍历</button>
+			<button id="btn_after">后序遍历</button>
+		</p>
+		<script>
+		    var queue=[];  //执行保存队列
+		    var $=function(str){ return document.getElementById(str);  }
+			function render(element) {
+				if (element) {
+					var div=document.getElementsByTagName("div"),i=0;
+            	    while(div[i]){  div[i].style.borderColor="black";; i++;  }
+					element.style.borderColor = "#ff0";
+				}
+			}
+			var preOrder = function(node) {
+					if (node) {
+						queue.push(node);
+						preOrder(node.children.item(0));
+						preOrder(node.children.item(1));
+					}
+			}
+			var inOrder = function(node) {
+				if (node) {
+					inOrder(node.children.item(0));
+					queue.push(node);
+					inOrder(node.children.item(1));
+				}
+			}
+			var afterOrder = function(node) {
+				if (node) {
+					afterOrder(node.children.item(0));
+					afterOrder(node.children.item(1));
+					queue.push(node);
+				}
+			}
+			var levelOrderTraversal = function(node) {
+				if (!node) {
+					throw new Error('Empty Tree')
+				}
+				var que = []
+				que.push(node)
+				while (que.length !== 0) {
+					node = que.shift()
+					if (node.left) que.push(node.left)
+					if (node.right) que.push(node.right)
+				}
+			}
+			var tree=$("root");
+			var t;
+			preOrder(tree);
+			$("btn_before").onclick=function(){
+				clearInterval(t);
+				queue=[];
+				preOrder(tree);
+				t=setInterval(function(){
+			 	    if(queue.length>0){
+			 		    render(queue.pop());
+			 	    }        
+			 	    if(queue.length<=0) clearInterval(t);
+			    },1000);
+			};
+			$("btn_center").onclick=function(){
+				clearInterval(t);
+				queue=[];
+				inOrder(tree);
+				t=setInterval(function(){
+			 	    if(queue.length>0){
+			 		    render(queue.pop());
+			 	    }        
+			 	    if(queue.length<=0) clearInterval(t);
+			    },1000);
+			};
+			$("btn_after").onclick=function(){
+				clearInterval(t);
+				queue=[];
+				afterOrder(tree);
+				t=setInterval(function(){
+			 	    if(queue.length>0){
+			 		    render(queue.pop());
+			 	    }        
+			 	    if(queue.length<=0) clearInterval(t);
+			    },1000);
+			};
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+            #root{
+            	width: 900px;
+            	height: 200px;
+            	padding: 20px;
+            }
+            .root_up,.root_bm{
+            	float: left;
+            	height: 180px;
+            	padding: 10px;
+            }
+            .root_up{
+            	width: 150px;
+            	margin-right: 20px;
+            	padding: 10px;
+            }
+            .up_1{
+            	width: 100px;
+            	height: 140px;
+            	padding: 10px;
+            }
+            .up_1 div{  width:50px;height: 80px; padding: 10px; }
+            .root_bm{
+            	width: 670px;
+            }
+            .bm_left{
+            	width: 140px;
+            	height: 150px;
+            	margin-right: 15px;
+            	padding: 10px;
+            	float: left;
+            }
+            .bm_left div{
+            	width: 30px;
+            	height: 100px;
+            	margin-right: 10px;
+            	padding: 10px;
+            	float: left;
+            }
+            .bm_right{
+            	width: 440px;
+            	height: 150px;
+            	padding: 10px;
+            	float: left;
+            }
+            .bm_right div{
+            	width: 50px;
+            	height: 100px;
+            	margin-right: 10px;
+            	padding: 10px;
+            	float: left;
+            }
+			div{
+				border: 2px black solid;
+			}
+			
+			.btn {
+				margin-top: 10px;
+			}
+			
+			.btn button {
+				font-size: 14px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<p class="btn">
+			<button id="btn_guang">广度优先遍历</button>
+			<button id="btn_deep">深度优先遍历</button>
+			<input type="text" id="input" value="10" placeholder="默认广度搜索"/>
+			<select id="select">
+				<option value="1">广度优先遍历</option>
+				<option value="2">深度优先遍历</option>
+			</select>
+			<button id="btn_search">搜索</button>
+		</p>
+		<div id="root" >1
+			<div class="root_up">2
+				<div class="up_1">4
+					<div >7</div>
+				</div>
+			</div>
+			<div class="root_bm">3
+				<div class="bm_left">5
+					<div >8</div>
+					<div >9</div>
+				</div>
+				<div class="bm_right">6
+					<div >10</div>
+					<div >11</div>
+					<div >12</div>
+					<div >13</div>
+					<div >14</div>
+				</div>
+			</div>
+		</div>
+		<script>
+		    var queue=[];  //执行保存队列
+		    var $=function(str){ return document.getElementById(str);  }   //获取ID
+			function render(element) {  //渲染
+				if (element) {
+					clearSet();
+					element.style.backgroundColor = "#ff0";
+				}
+			}
+			function clearSet(){  //重置样式
+				var div=document.getElementsByTagName("div"),i=0;
+            	while(div[i]){  div[i].style.backgroundColor="white";; i++;  }
+			}
+			var preOrder = function(node) {   //深度优先遍历
+					if (node) {
+						queue.push(node);
+						for(var i=0,len=node.children.length;i<len;i++){
+							preOrder(node.children.item(i));
+						}
+					}
+			}
+			var levelOrderTraversal = function(node) { //广度优先遍历 
+				if (!node) {
+					throw new Error('Empty Tree')
+				}
+				var que=[]
+				que.push(node);
+				while(que.length!=0) {
+					node = que.shift();
+					queue.push(node);   //保存数据
+					for(var i=0,len=node.children.length;i<len;i++){
+							if(node.children.item(i))
+							    que.push(node.children.item(i));
+					}
+				}
+			}
+			var tree=$("root"); //初始化树
+			var t;
+			$("btn_guang").onclick=function(){ //广度优先点击
+				clearInterval(t);
+				queue=[];
+				levelOrderTraversal(tree);
+				t=setInterval(function(){
+			 	    if(queue.length>0){
+			 		    render(queue.shift());
+			 	    }        
+			 	    else{
+			 	    	clearInterval(t);
+			 	    	clearSet();
+			 	    }
+			    },500);
+			};
+			$("btn_deep").onclick=function(){  //深度优先点击
+				clearInterval(t);
+				queue=[];
+				preOrder(tree);
+				t=setInterval(function(){
+			 	    if(queue.length>0){
+			 		    render(queue.shift());
+			 	    }        
+			 	    else{
+			 	    	clearInterval(t);
+			 	    	clearSet();
+			 	    }
+			    },500);
+			};
+			$("btn_search").onclick=function(){  //搜索节点
+				var sel=$("input").value;
+				var type=$("select").value;
+				clearInterval(t);
+				queue=[];
+				switch(type){
+					case "1":levelOrderTraversal(tree);break;
+					case "2":preOrder(tree);break;
+				};
+				t=setInterval(function(){
+			 	    if(queue.length>0){
+			 	    	var elemt=queue.shift();
+			 	    	if(elemt.firstChild.textContent==sel.toString()){
+			 	    		clearInterval(t);
+			 	    	}
+			 		    render(elemt);
+			 	    }
+			 	    else{
+			 	    	clearInterval(t);
+			 	    	clearSet();
+			 	    }
+			    },500);
+			}
+		</script>
+	</body>
+
+</html>
