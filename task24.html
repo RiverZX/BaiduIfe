@@ -17,7 +17,6 @@
             }
             .root_up{
             	width: 150px;
-            	margin-right: 20px;
             	padding: 10px;
             }
             .up_1{
@@ -32,14 +31,12 @@
             .bm_left{
             	width: 140px;
             	height: 150px;
-            	margin-right: 15px;
             	padding: 10px;
             	float: left;
             }
             .bm_left div{
             	width: 30px;
             	height: 100px;
-            	margin-right: 10px;
             	padding: 10px;
             	float: left;
             }
@@ -52,12 +49,12 @@
             .bm_right div{
             	width: 50px;
             	height: 100px;
-            	margin-right: 10px;
             	padding: 10px;
             	float: left;
             }
 			div{
 				border: 2px black solid;
+				margin-right: 10px;
 			}
 			
 			.btn {
@@ -74,12 +71,17 @@
 		<p class="btn">
 			<button id="btn_guang">广度优先遍历</button>
 			<button id="btn_deep">深度优先遍历</button>
-			<input type="text" id="input" value="10" placeholder="默认广度搜索"/>
+			<input type="text" id="input" placeholder="默认广度搜索"/>
 			<select id="select">
 				<option value="1">广度优先遍历</option>
 				<option value="2">深度优先遍历</option>
 			</select>
 			<button id="btn_search">搜索</button>
+		</p>
+		<p class="btn">
+			<button id="btn_del">先选中删除所有子节点</button>
+			<input type="text" id="choose" placeholder="选中节点"/>
+			<button id="btn_add">先选中增加节点</button>
 		</p>
 		<div id="root" >1
 			<div class="root_up">2
@@ -104,17 +106,28 @@
 		<script>
 		    var queue=[];  //执行保存队列
 		    var $=function(str){ return document.getElementById(str);  }   //获取ID
-			function render(element) {  //渲染
-				if (element) {
-					clearSet();
-					element.style.backgroundColor = "#ff0";
-				}
+			function render(flag,sel) {  //渲染
+				clearInterval(t);
+				t=setInterval(function(){
+			 	    if(queue.length>0){
+			 	    	var elemt=queue.shift();
+			 	    	if(flag&&elemt.firstChild.textContent==sel.toString()){
+			 	    		clearInterval(t);
+			 	    	}
+					    clearSet();
+					    elemt.style.backgroundColor = "#ff0";
+			 	    }
+			 	    else{
+			 	    	clearInterval(t);
+			 	    	clearSet();
+			 	    }
+			    },500);
 			}
 			function clearSet(){  //重置样式
 				var div=document.getElementsByTagName("div"),i=0;
             	while(div[i]){  div[i].style.backgroundColor="white";; i++;  }
 			}
-			var DfsOrder = function(node) {   //深度优先遍历
+			var preOrder = function(node) {   //深度优先遍历
 					if (node) {
 						queue.push(node);
 						for(var i=0,len=node.children.length;i<len;i++){
@@ -122,11 +135,11 @@
 						}
 					}
 			}
-			var BfsOrder = function(node) { //广度优先遍历 
+			var levelOrderTraversal = function(node) { //广度优先遍历 
 				if (!node) {
 					throw new Error('Empty Tree')
 				}
-				var que=[]
+				var que=[];
 				que.push(node);
 				while(que.length!=0) {
 					node = que.shift();
@@ -138,58 +151,57 @@
 				}
 			}
 			var tree=$("root"); //初始化树
-			var t;
+			var t,nodeDiv=null;
 			$("btn_guang").onclick=function(){ //广度优先点击
-				clearInterval(t);
 				queue=[];
-				BfsOrder(tree);
-				t=setInterval(function(){
-			 	    if(queue.length>0){
-			 		    render(queue.shift());
-			 	    }        
-			 	    else{
-			 	    	clearInterval(t);
-			 	    	clearSet();
-			 	    }
-			    },500);
+				levelOrderTraversal(tree);
+				render(false);
 			};
 			$("btn_deep").onclick=function(){  //深度优先点击
-				clearInterval(t);
 				queue=[];
-				DfsOrder(tree);
-				t=setInterval(function(){
-			 	    if(queue.length>0){
-			 		    render(queue.shift());
-			 	    }        
-			 	    else{
-			 	    	clearInterval(t);
-			 	    	clearSet();
-			 	    }
-			    },500);
+				preOrder(tree);
+				render(false);
 			};
 			$("btn_search").onclick=function(){  //搜索节点
+				queue=[];
 				var sel=$("input").value;
 				var type=$("select").value;
-				clearInterval(t);
-				queue=[];
 				switch(type){
-					case "1":BfsOrder(tree);break;
-					case "2":DfsOrder(tree);break;
+					case "1":levelOrderTraversal(tree);break;
+					case "2":preOrder(tree);break;
 				};
-				t=setInterval(function(){
-			 	    if(queue.length>0){
-			 	    	var elemt=queue.shift();
-			 	    	if(elemt.firstChild.textContent==sel.toString()){
-			 	    		clearInterval(t);
-			 	    	}
-			 		    render(elemt);
-			 	    }
-			 	    else{
-			 	    	clearInterval(t);
-			 	    	clearSet();
-			 	    }
-			    },500);
-			}
+				render(true,sel);
+			};
+			tree.addEventListener("click",function(event){
+				var e = event || window.event;
+				var target = e.target || e.srcElement;
+				e.stopPropagation();//阻止事件冒泡
+				if (target.nodeName.toLowerCase() == "div") {
+					clearSet();
+					target.style.backgroundColor="#f0f";
+					nodeDiv=target;
+				}
+			});
+			$("btn_del").onclick=function(){
+				var choose=$("choose").value;
+				console.log(typeof nodeDiv.firstChild.textContent);
+				if(nodeDiv!=null&&nodeDiv.firstChild.textContent.replace(/^\s*/, "").replace(/\s*$/, "")==choose){
+					nodeDiv.remove();
+					clearSet();
+					nodeDiv=null;
+				}
+				
+			};
+			$("btn_add").onclick=function(){
+				var choose=$("choose").value;
+				if(nodeDiv&&choose){
+					var div=document.createElement("div");
+					div.innerText=choose;
+					nodeDiv.appendChild(div);
+					clearSet();
+					nodeDiv=null;
+				}
+			};
 		</script>
 	</body>
 
