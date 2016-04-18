@@ -122,7 +122,7 @@ var BUS={ //bus传播介质
 		    eating:type.eating,
 		    recover:type.recover
 		};
-		log('司令官向轨道'+(i+1)+'发出了'+commond+'指令','yellow');
+		log('司令向轨道'+(i+1)+'发出'+commond+'指令','yellow');
 		var rand=(Math.random())*100;
 		setTimeout(function(){
 		    if(rand>90){

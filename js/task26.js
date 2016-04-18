@@ -121,7 +121,7 @@ function airshipEvent(dom,track,commond,sudo){ //事件监听
 		    commond:commond,
 		    sudo:sudo
 		};
-		log('司令官向轨道'+(i+1)+'发出了'+commond+'指令','yellow');
+		log('司令向轨道'+(i+1)+'发出'+commond+'指令','yellow');
 		setTimeout(function(){controler.commander(o);},1000); //司令发出命令
 	},false);
 
