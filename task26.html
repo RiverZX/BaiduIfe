@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<title>Document</title>
+	<style type="text/css">
+	     *{
+	     	padding: 0;
+	     	margin: 0;
+	     }
+	     ul{
+	     	list-style-type: none;
+	     }
+	    #universe{
+            position: relative;
+            width: 1200px;
+            height: 640px;
+            margin: 0 auto;
+            background-color: black;
+	     }
+	     #planet,
+	     #track1,
+	     #track2,
+	     #track3,
+	     #track4{
+	     	position:  absolute;
+	     	left: 50%;
+	     	top: 50%;
+	     	border-radius: 50%;
+	     }
+	     #planet{
+	     	width: 50px;
+	     	height: 50px;
+            margin-left: -25px;
+            margin-top: -25px;
+            background-color: blue;
+	     }
+	    #track1{
+	     	width: 110px;
+	     	height: 110px;
+            margin-left: -55px;
+            margin-top: -55px;
+            border:2px white solid;
+	     }
+	     #track2{
+	     	width: 180px;
+	     	height: 180px;
+            margin-left: -90px;
+            margin-top: -90px;
+            border:2px white solid;
+	     }
+	     #track3{
+	     	width: 250px;
+	     	height: 250px;
+            margin-left: -125px;
+            margin-top: -125px;
+            border:2px white solid;
+	     }
+	     #track4{
+	     	width: 320px;
+	     	height: 320px;
+            margin-left: -160px;
+            margin-top: -160px;
+            border:2px white solid;
+	     }
+	     .airship{
+	     	position: absolute;
+	     	width: 60px;
+	     	height: 20px;
+	     	left: 50%;
+	     	top: -8px;
+	     	margin-left: -30px;
+	     	background-color: white;
+	     	transition: 0.2s linear;
+            -webkit-transition: 0.2s linear;
+            -o-transition: 0.2s linear;
+            -moz-transition: 0.2s linear;
+            -ms-transition: 0.2s linear;
+	     	transform-origin:center 60px;
+	     	border-radius: 5px;
+	     }
+	     #track2 .airship{
+	     	transform-origin:center 100px;
+	     }
+	     #track3 .airship{
+	     	transform-origin:center 130px;
+	     }
+	     #track4 .airship{
+	     	transform-origin:center 170px;
+	     }
+	     .airship .energy{
+	     	width: 60px;
+	     	height: 20px;
+	     	background-color: green;
+	     	text-align: center;
+	     	line-height: 20px;
+	     }
+	     #control{
+	     	position: absolute;
+	     	width: 400px;
+	     	height: 120px;
+	     	left: 0px;
+	     	top: 0px;
+	     	background-color: #333;
+	     	z-index: 100;
+	     }
+	     p{
+	     	height: 20px;
+	     	background-color: yellow;
+	     	font-weight: bolder;
+	     }
+	     #control li{
+	     	background-color: #888;
+	     	padding: 2px;
+	     	margin-top: 1px;
+	     }
+	     #control input{
+	     	width: 30px;
+	     }
+	     #console_bar,
+	     #control_bar{
+            cursor: move;
+	     }
+	     #console{
+	     	position: absolute;
+	     	width: 420px;
+	     	height: 240px;
+	     	top: 400px;
+	     	left: 780px;
+	     	background-color: #333;
+	     	z-index: 120;
+	     }
+	     #content{
+	     	background-color: #333;
+	     	height: 206px;
+	     	padding: 5px;
+	     	color: green;
+	     	font-size: 14px;
+	     	font-weight: bold;
+	     	overflow:auto;
+	     }
+	     #content p{background-color:#333; }
+	     #content span{
+	     	margin-right: 10px;
+	     }
+	</style>
+</head>
+<body>
+	<div id="universe">
+	   <div id="track4"></div> 
+	   <div id="track3"></div>
+	   <div id="track2"></div>
+	   <div id="track1"></div> 
+	   <div id="planet"></div>
+	   <div id="control">
+	     <p id="control_bar">操作面板</p>
+	     <ul>
+	        <li >
+               <span>第一轨道：</span>
+               <button id="newOrDie1">创建飞船</button>
+               <input  type="number" value="1" id="number1"/>
+               <button id="stop1">停止飞行</button>
+               <button id="destroy1">自爆销毁</button>
+               <button id="start1">开始飞行</button>
+	        </li>
+	        <li >
+               <span>第二轨道：</span>
+               <button id="newOrDie2">创建飞船</button>
+               <input  type="number" value="1" id="number2" />
+               <button id="stop2">停止飞行</button>
+               <button id="destroy2">自爆销毁</button>
+               <button id="start2">开始飞行</button>
+	        </li>
+	        <li >
+               <span>第三轨道：</span>
+               <button id="newOrDie3">创建飞船</button>
+               <input  type="number" value="1" id="number3"/>
+               <button id="stop3">停止飞行</button>
+               <button id="destroy3">自爆销毁</button>
+               <button id="start3">开始飞行</button>
+	        </li>
+	        <li >
+               <span>第四轨道：</span>
+               <button id="newOrDie4">创建飞船</button>
+               <input  type="number" value="1" id="number4" />
+               <button id="stop4">停止飞行</button>
+               <button id="destroy4">自爆销毁</button>
+               <button id="start4">开始飞行</button>
+	        </li>
+	     </ul>	
+	   </div>
+	   <div id="console">
+	       <p id="console_bar">控制台</p>
+	       <div id="content">
+	       </div>
+	   </div>
+	</div>
+	<script src="js/task26.js"></script>
+</body>
+</html>
