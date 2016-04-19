@@ -2,7 +2,7 @@
 var $id = function(id) { //获取dom对象
 		return document.getElementById(id);
 }
-var air=[],start1=null,start2=null,start=[];
+var air=[],start=[];
 var console_content=$id('content');
 function log(str,color) { //调试台打印信息
 	var p=document.createElement('p');
@@ -50,7 +50,7 @@ Airship.prototype={
         track.appendChild(this.div);
 	},
 	move:function(air_id){
-	    this.Deg+=this.sudo;
+	    this.Deg+=this.sudo*10;
 	    this.div.style.transform='rotate('+this.Deg+'deg)';
 	    this.energy.innerText=--this.energy_num+'%';
 	    this.energy.style.width=this.energy_num+"%";
@@ -58,45 +58,47 @@ Airship.prototype={
 	    	clearInterval(air_id);
 	    	this.flag=false;
 	    	var _this=this;
-	    	start[air_id-1]=setInterval(function(){
+	    	start[air_id]=setInterval(function(){
 				_this.energy_num++;
 				_this.energy.innerText=_this.energy_num+'%';
 	            _this.energy.style.width=_this.energy_num+"%";
 	            if(_this.energy_num==100){
-                    clearInterval(start[air_id-1]);    
+                    clearInterval(start[air_id]);    
 	    		}
-			},this.sudo*200);
+			},1000);
 	    }
     }
 }	
 var controler = { //操作者
-	track: function(track_type,airship,air_id,commond,sudo) {
-		var rand=(Math.random())*100,i=track_type.slice(5)-1;
+	track: function(track_type,airship,commond,sudo) {
+		var rand=(Math.random())*100;
+		var i=track_type.slice(5)-1;
 		if(rand>70){
 			log('向轨道'+(i+1)+'发送的'+commond+'指令丢包了','red');
 		}else{
 			log('轨道'+(i+1)+'成功接受'+commond+'指令','green');
             switch (commond) { 
 			case 'start':
-			    clearInterval(air_id); //防止多个定时器被注册 
 				if(airship&&!airship.flag){
+					clearInterval(start[i]);
 					airship.flag=true;
-					air_id=setInterval(function(){
-				       airship.move(air_id);
-				    },airship.sudo*200);
+					start[i]=setInterval(function(){
+				       airship.move(i);
+				    },1000);
 				}
 				break;
 			case 'stop':
-				clearInterval(air_id);
+				clearInterval(start[i]);
+				airship.flag=false;
 				break;
 			case 'destroy':
-			    clearInterval(air_id);
+			    clearInterval(start[i]);
 			    $id(track_type).removeChild($id(track_type).getElementsByClassName('airship')[0]);//删除飞船
 				arr[i]=null;
 				break;
 		    case 'create':
 		        var track=$id(track_type);
-		        if(!air[i]||air[i]!==null){
+		        if(!air[i]){
 		        	air[i]=new Airship(0,sudo,100);
 		            air[i].init(track); 
 		        }
@@ -105,7 +107,7 @@ var controler = { //操作者
 		}
 	},
 	commander: function(mingling) { //司令官
-		this['track'](mingling.track_type,mingling.airship,mingling.id,mingling.commond,mingling.sudo);
+		this['track'](mingling.track_type,mingling.airship,mingling.commond,mingling.sudo);
 	}
 }
 function getsudo(dom_id){ //获取速度值
@@ -117,7 +119,6 @@ function airshipEvent(dom,track,commond,sudo){ //事件监听
 		var o={
 			track_type:track,
 		    airship:air[i],
-		    id:start[i],
 		    commond:commond,
 		    sudo:sudo
 		};

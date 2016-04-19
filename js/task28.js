@@ -52,7 +52,7 @@ Airship.prototype={
         track.appendChild(this.div);
 	},
 	move:function(air_id){ //移动
-	    this.Deg+=this.sudo;
+	    this.Deg+=this.sudo*10;
 	    this.energy_num-=this.eating;
 	    if(this.energy_num<=0){
 	    	this.energy_num=0;
@@ -117,6 +117,7 @@ var controler = { //操作者
 		case 'stop':
 		    if(airship){ //防止对象不存在时，按下按钮浏览器调试台会报错
                 airship.reset(track_type,commond,i);
+                airship.flag=false;
 		    }
 			break;
 		case 'destroy':

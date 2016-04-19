@@ -52,7 +52,7 @@ Airship.prototype={
         track.appendChild(this.div);
 	},
 	move:function(air_id){
-	    this.Deg+=this.sudo;
+	    this.Deg+=this.sudo*10;
 	    console.log(this.Deg);
 	    this.energy_num-=this.eating;
 	    if(this.energy_num<=0){
@@ -92,6 +92,7 @@ var controler = { //操作者
 			break;
 		case 'stop':
 			clearInterval(start[i]);
+			airship.flag=false;
 			break;
 		case 'destroy':
 			clearInterval(start[i]);
