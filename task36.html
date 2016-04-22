@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <style>
+        .container{
+            width: 500px;
+            height: 500px;
+            position: relative;
+        }
+        .content_left{
+            width: 500px;
+            height: 500px;
+             float: left;
+        }
+        .content_rig{
+            width: 500px;
+            height: 500px;
+            float: right;
+        }
+        table{
+            border-spacing: 0;
+            border-collapse: collapse;
+            background-color: transparent;
+            position: absolute;
+            left: 45px;
+            z-index: 10;
+        }
+        td{
+            font-weight: bold;
+            text-align: center;
+            padding: 0px;
+            margin:0;
+        }
+        .square{
+            width:100%;
+            height:100%;
+            background-color: black; 
+            box-sizing: border-box;
+        }
+        .scanf{
+            margin-top: 10px;
+        }
+        .scanf p{
+        	display: inline-block;
+        }
+        #num{
+            width: 50px;
+            height: 306px;
+            overflow: auto;
+            background-color: #333;
+            box-sizing: border-box;
+            padding-top: 3px;
+        }
+        #num span{
+        	display: block;
+        	font-size: 20px;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 2px;
+        }
+        #btn_text{
+            width: 300px;
+            height: 300px;
+            display: block;
+            float: left;
+            background-color: black;
+            color: green;
+            font-size: 20px;
+            font-weight: bold;
+            overflow: auto;
+        }
+        .sq{
+            position: absolute;
+            background-color: red; 
+            box-sizing: border-box;
+            z-index: 120;
+            transition: 0.5s linear;
+            -webkit-transition: .5s linear;
+            -moz-transition: .5s linear;
+            -ms-transition: .5s linear;
+        }
+        #colNum{
+            margin:0;
+            padding: 0;
+        }
+        #colNum span{
+            height: 100%;
+            line-height: 100%;
+            display: block;
+            float: left;
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+            padding: 0px;
+            margin:0;
+        }
+        #rowNum{
+            float: left;
+        }
+        #rowNum span{
+            display: block;
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+            margin:0;
+        }
+        #console{
+        	width: 400px;
+        	height: 400px;
+        	border: 2px antiquewhite solid;
+        	margin-bottom: 20px;
+        	overflow: auto;
+        }
+        #console p{
+        	height: 14px;
+        	font-size: 14px;
+        	padding-left: 5px;
+        	line-height: 0;
+        }
+        #menu{
+        	position: absolute;
+        	display: none;
+        	z-index: 1000;
+        	list-style: none;
+        	width: 90px;
+        	left: 60px;
+        	top:60px;
+        	border: 1px blueviolet solid;
+        	background-color: #000000;
+        	padding-left: 2px;
+        	margin: 0;
+        }
+        #menu li{
+        	text-align: left;
+        	width: 100%;
+        	height: 14px;
+        	font-size: 12px;
+        	color: white;
+        	cursor: pointer;
+        }
+        #menu li:not(:last-child){
+        	border-bottom: 1px green solid;
+        }
+        #menu li:hover{
+        	background-color: #0000FF;
+        }
+    </style>
+</head>
+<body>
+    <div class="content_left">
+    	<div class="container" id="container">
+            <div id="colNum">
+        	</div>
+       		 <table id="table" border="1">
+            	<tbody id="checkerboard">
+            	</tbody>
+        	</table>
+        	<ul id="menu">
+        		<li>放墙</li>
+        		<li>拆墙</li>
+        		<li>移动到这里</li>
+        		<li>飞到这里</li>
+        		<li>取消所有AI指令</li>
+        		<li>刷墙</li>
+        	</ul>
+        	<div id="rowNum">
+        	</div>
+    	</div>
+        <div id="control">
+        	<p>
+            	<input id="btn_run" type="button" value="执行">
+            	<input id="btn_refresh" type="button" value="refresh">
+        	</p>
+        	<div class="scanf">
+            	<p id="num"></p>
+            	<p><textarea id="btn_text"></textarea></p>
+        	</div>
+    	</div>
+    </div>
+    <div class="content_rig">
+        <p>输出日志</p>
+        <div id="console"></div>
+        <div>
+        	<button id="clearlog">清除日志</button>
+            <input type="text" id="rowIn" placeholder="请输入行"/>
+            <input type="text" id="colIn" placeholder="请输入列"/>
+            <button id="make_tab">生成图</button>
+        </div>
+    </div>
+    <script src="js/a.js"></script>
+    <script src="js/task36.js"></script>
+</body>
+</html>

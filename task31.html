@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task34</title>
+    <style type="text/css">
+      body {
+        font: 24px "Microsoft YaHei";
+      }
+
+      .contain {
+        width: 500px;
+        margin: 0 auto;
+      }
+
+      .radio-contain {
+        margin-bottom: 45px;
+      }
+
+      .college {
+        width: 500px;
+        height: 45px;
+      }
+
+      select {
+        float: left;
+        width: 180px;
+        height: 35px;
+        font-size: 22px;
+        border: 1px solid;
+        border-radius: 5px;
+
+      }
+
+      select:first-child {
+        margin-right: 30px;
+      }
+
+      input[type="text"] {
+       width: 300px;
+       height: 25px;
+       border: 1px solid;
+       border-radius: 5px;
+      }
+
+      .hide {
+        display: none;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="contain">
+      <div class="radio-contain" onchange="changeRadio()">
+        <label>
+          <input type="radio" name="options" id="student" checked>在校生
+        </label>
+        <label>
+          <input type="radio" name="options" id="notstudent">非在校生
+        </label>
+      </div>
+      <div class="college" id="college">
+        <div class="space">
+          <select id="sec1" >
+            <option>北京</option>
+            <option>上海</option>
+            <option>杭州</option>
+          </select>
+        </div>
+        <div class="space-college">
+          <select id="sec2"></select>
+        </div>
+      </div>
+      <div class="text hide" id="text">
+        <input type="text" id="workspace" placeholder="就业单位">
+      </div>
+    </div>
+    <script type="text/javascript" src="js/task31.js"></script>
+  </body>
+</html>

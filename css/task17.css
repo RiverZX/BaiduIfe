@@ -1,0 +1,26 @@
+ .aqi-chart-wrap{
+            overflow: hidden;
+            zoom: 1;
+            border: 1px solid #000000;
+            height: 600px;
+            width: 100%;
+        }
+        .box{
+            float: left;
+            height: 100%;
+            position: relative;
+        }
+        /*.day{
+            width: 10px;
+        }
+        .week{
+            width: 40px;
+        }
+        .month{
+            width: 80px;
+        }*/
+        .aqi-chart-wrap .histogram{
+            position:absolute;
+            bottom: 0;
+            width: 100%;
+        }

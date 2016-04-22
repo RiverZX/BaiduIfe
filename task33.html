@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+	<title></title>
+	<style>
+	    .container{
+	    	width: 500px;
+            height: 500px;
+            float: left;
+	    }
+	    table{
+	    	border-spacing: 0;
+            border-collapse: collapse;
+            background-color: transparent;
+	    }
+	    td{
+	    	width: 40px;
+	    	height: 40px;
+            font-weight: bold;
+            text-align: center;
+            padding: 0;
+	    }
+	    .square{
+            width:100%;
+            height:40px;
+            background-color: red; 
+            border-top: 12px blue solid;
+            box-sizing: border-box;
+	    }
+        #control{
+        	float: left;
+        	margin-left: 10px;
+        } 
+        #run{
+        	margin-top: 10px;
+        }
+	</style>
+</head>
+<body>
+ 	<div class="container">
+		<table border="1">
+			<tbody id="checkerboard">
+			<tr>
+			    <td></td>
+			    <td>1</td>
+			    <td>2</td>
+			    <td>3</td>
+			    <td>4</td>
+			    <td>5</td>
+			    <td>6</td>
+			    <td>7</td>
+			    <td>8</td>
+			    <td>9</td>
+			    <td>10</td>
+			</tr>
+			<tr>
+			    <td>1</td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			</tr>
+			<tr>
+			    <td>2</td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			</tr>
+			<tr>
+			    <td>3</td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			</tr>
+			<tr>
+			    <td>4</td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			</tr>
+			<tr>
+			    <td>5</td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			</tr>
+			<tr>
+			    <td>6</td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			</tr>
+			<tr>
+			    <td>7</td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			</tr>
+			<tr>
+			    <td>8</td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			</tr>
+			<tr>
+			    <td>9</td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			</tr>
+			<tr>
+			    <td>10</td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			    <td></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="control">
+	    <p>
+	        <input id="btn_go" type="button" value="GO">
+			<input id="btn_left" type="button" value="TUN LEF">
+			<input id="btn_right" type="button" value="TUN RIG">
+			<input id="btn_back" type="button" value="TUN BAC">
+	    </p> 
+		<p>
+		    <input id="btn_text" type="text">
+			<input id="btn_run" type="button" value="执行">
+		</p>
+	</div>
+	<script src="js/task33.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task29</title>
+    <style type="text/css">
+      .contain {
+        width: 400px;
+        margin: 100px auto;
+      }
+
+      input {
+        width: 250px;
+        height: 32px;
+        font-size: 20px;	
+        border-radius: 5px;
+        border-color: #ccc;
+      }
+
+      button {
+        height: 40px;
+        width: 90px;
+        color: #fff;
+        font-size: 24px;
+        border: none;
+        border-radius: 5px;
+        background-color: #2563AD;
+        vertical-align: top;
+      }
+
+      
+
+    </style>
+  </head>
+  <body>
+    <div class="contain">
+      <div class="search">
+        <input id="input" type="text">
+        <button id="btn">确认</button>
+      </div>
+      <div class="info" id="info">必填，长度为4~16个字符</div>
+     </div>
+  </body>
+  <script type="text/javascript">
+    function info () {
+      var input = document.getElementById('input');
+      var text = document.getElementById('input').value;
+      var info = document.getElementById("info");
+      
+      function textlen (text){
+        var textlength = 0;
+        for (var i = 0;text.length > i; i++){
+          var stage = text.charCodeAt(i);
+          if(stage >= 0&& stage <=128){
+            textlength=textlength+1;
+          } else {
+            textlength=textlength+2;
+          }
+        }
+        return textlength;
+      }
+      function changeinfo (){
+        if(textlen(text) ==0 ){
+          info.innerText = "请输入姓名 必填";
+          text = "";
+          input.style.borderColor = "red";
+        }else if(textlen(text) > 16||textlen(text)<4){
+          info.innerText = "字符数不匹配";
+          text="";
+          input.style.borderColor = "red";
+        }else {
+          info.innerText = "验证成功";
+          input.style.borderColor = "lightgreen";
+        }
+      }
+      changeinfo();
+    }
+    var btn =document.getElementById("btn");
+
+    function addEvent(element, event, listener) {
+    try {
+        element.addEventListener(event, listener, false);
+    }
+    catch(e){
+        try{
+            element.attachEvent("on" + event, listener);
+        }
+        catch(e) {
+            element["on" + event] = listener;
+        }
+    }
+    
+}
+    addEvent(btn,"click",info);
+  </script>
+</html>

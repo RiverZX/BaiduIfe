@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = "utf-8">
+    <title>task32</title>
+    <style type="text/css">
+      form {
+        float: left;
+      }
+
+      input[type ="text"] {
+        width: 250px;
+        height: 32px;
+        font-size: 20px;	
+        border-radius: 5px;
+        border-color: #ccc;
+      }
+
+      .contain {
+        width: 500px;
+        margin: 0 auto;
+      }
+
+      .contain div {
+        float: right;
+      }
+
+      .info {
+        display: block;
+        font-size: 12px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div class="user">
+        <lable>用户名</lable>
+        <input type="checkbox" id="user-check">
+        <select id="sec">
+         <option>不为空</option>
+         <option>在4到16字符之间</option>
+        </select>
+      </div>
+      <div class="email">
+        <lable>邮箱</lable>
+        <input type="checkbox" id="email-check">
+        <select>
+         <option>符合邮箱格式</option>
+        </select>
+      </div>
+      <div class="phone">
+        <lable>手机</lable>
+        <input type="checkbox" id="phone-check">
+        <select>
+         <option>符合手机格式</option>
+        </select>
+      </div>
+      <div class="password">
+        <lable>密码</lable>
+        <input type="checkbox" id="password-check">
+        <select>
+         <option>在4到16字符之间</option>
+        </select>
+      </div>
+      <input id="btn" type="button" value = "OK">
+    </form>
+    <div class="contain" id="contain"></div>
+    <script type="text/javascript" src="js/task32.js"></script>
+  </body>
+</html>

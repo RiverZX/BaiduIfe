@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>task 25</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+      ul {
+        /*padding-left: 25px;*/
+        padding-bottom: 0px;
+       /* list-style-position: outside;*/
+        border-left: dotted darkturquoise 1px;
+      }
+
+      li {
+        list-style: none;
+        list-style-position: inside;
+        padding-left: 5px;
+      }
+
+      p {
+        display: inline-block;
+      }
+
+      span {
+        font: 12px;
+        color: green;
+        margin-left: 10px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <ul id="tree">
+      <li id="root" class="node">
+        <p>大学</p>
+        <span>ADDFILE</span>
+        <span>ADDFOLDER</span>
+        <span>DEL</span>
+        <ul>
+          <li id="l-node1" class="node">
+            <p>通信学院</p>
+            <span>ADDFILE</span>
+            <span>ADDFOLDER</span>
+            <span>DEL</span>
+            <ul>
+              <li id="l-node11">
+                <p>通信工程</p>
+                
+              </li>
+              <li id="l-node12">
+                <p>信息工程</p>
+              </li>
+              <li id="l-node13">
+                <p>电信工程</p>
+              </li>
+              <li id="l-node14">
+                <p>广播电视工程</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+  <script type="text/javascript" src="js/task25.js"></script>
+</html>
